@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Movies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+<h1>Movie Collection</h1>
+
+<div id="output"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    let movieObject = {
+        movies: [
+            {
+                id: 1,
+                title: "Fight Club",
+                actors: [
+                    "Brad Pitt",
+                    "Edward Norton",
+                    "Meat Loaf",
+                    "Zach Grenier"
+                ],
+                genre: "Drama",
+                director: [
+                    "David Fincher"
+                ],
+                year: 1999,
+                runtime: "110 mins",
+                awards: true,
+                country: "USA",
+                poster: null,
+                imgUrl: "images/fight_club.jpg"
+
+            },
+            {
+                id: 2,
+                title: "Your Name",
+                actors: [
+                    "Ryûnosuke Kamiki",
+                    "Mone Kamishiraishi",
+                    "Ryô Narita"
+                ],
+                genre: "Animation",
+                director: [
+                    "Makoto Shinkai"
+                ],
+                year: 2016,
+                runtime: "106 mins",
+                awards: true,
+                country: "Japan",
+                poster: null,
+                imgUrl: "images/your_name.jpg"
+
+            },
+            {
+                id: 5,
+                title: "Westworld",
+                actors: [
+                    "Evan Rachel Wood",
+                    "Jeffrey Wright",
+                    "Thandie Newton",
+                    "Ed Harris"
+                ],
+                genre: "Sci-Fi",
+                director: [
+                    "Lisa Joy"
+                ],
+                year: 2016,
+                runtime: "62 mins",
+                awards: false,
+                country: "USA",
+                poster: null,
+                imgUrl: "images/west_world.jpg"
+            },
+            {
+                id: 4,
+                title: "Amélie",
+                actors: [
+                    "Audrey Tautou",
+                    "Mathieu Kassovitz",
+                    "Rufus",
+                    "Lorella Cravotta"
+                ],
+                genre: "Romance",
+                director: [
+                    "Jean-Pierre Jeunet"
+                ],
+                year: 2001,
+                runtime: "112 mins",
+                awards: false,
+                country: "French",
+                poster: null,
+                imgUrl: "images/amelie.jpg"
+            },
+            {
+                id: 3,
+                title: "The Battle of Algiers",
+                actors: [
+                    "Brahim Hadjadj",
+                    "Jean Martin",
+                    "Yacef Saadi"
+                ],
+                genre: "War",
+                director: [
+                    "Gillo Pontecorvo"
+                ],
+                year: 1966,
+                runtime: "121 mins",
+                awards: false,
+                country: "French",
+                poster: null,
+                imgUrl: "images/battle_of_algiers.jpg"
+            }
+        ]
+    }
+
+
+    let movieList = movieObject.movies;
+
+    const html = movieList.map(x =>
+        `<div class="row">
+            <div class="col s12 m7">
+                <div style="width: 450px"  class="card">
+                    <div class="card-image">
+                        <img src="${x.imgUrl}">
+                        <span class="card-title">${x.title}</span>
+                    </div>
+                    <div class="card-content">
+                        <table>
+
+                            <tr>
+                                <td>Genre</td>
+                                <td>${x.genre}</td>
+                            </tr>
+                            <tr>
+                                <td>Runtime</td>
+                                <td>${x.runtime}</td>
+                            </tr>
+                            <tr>
+                                <td>Main Actors</td>
+                                <td>${x.actors.map(el => ` ${el}`)}</td>
+                            </tr>
+                            <tr>
+                                <td>Directed by</td>
+                                <td>${x.director}</td>
+                            </tr>
+                            <tr>
+                                  <td>Released Year</td>
+                                  <td>${x.year}</td>
+                            </tr>
+                            <tr>
+                                  <td>Country</td>
+                                  <td>${x.country}</td>
+                            </tr>
+                        </table>
+                    </div>
+                <div class="card-action">
+                    <a href="#"><b>More Info</b></a>
+                </div>
+            </div>
+        </div>
+    </div>`
+    )
+
+    document.getElementById('output').innerHTML = html.join("");
+
+</script>
+</body>
+</html>
